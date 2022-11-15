@@ -65,7 +65,6 @@ const Dex = () => {
             pricetoken.push(await contract.getRate(tokenETH[i].token, daistablecoin, false));
           }
           setIsLoading(false);
-          console.log(pricetoken)
         }
       } catch (err) {
         console.log(err);

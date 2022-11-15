@@ -29,7 +29,6 @@ const Cex = () => {
         const responseBinance = await axios
         .get(urlAPIBinance)
         .then((responseBinance) => responseBinance.data)
-        console.log(responseBinance)
         setPriceBinance(responseBinance);
         for (let i = 0; byBitToken.length > i; i++) {
           const responseBybit: any = await axios
