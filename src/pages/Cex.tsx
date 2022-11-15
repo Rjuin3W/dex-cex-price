@@ -22,6 +22,7 @@ const Cex = () => {
     const urlAPIHuobi = "https://api.huobi.pro/market/detail/merged"
 
     const byBitToken = ['BTCUSDT', 'ETHUSDT', 'XRPUSDT', 'DOGEUSDT', 'AVAXUSDT']
+    const TOKEN = ['BTC_USDT', 'ETH_USDT', 'XRP_USDT', 'DOGE_USDT', 'AVAX_USDT']
     const HuobiToken = ['btcusdt', 'ethusdt', 'xrpusdt', 'dogeusdt', 'avaxusdt']
 
     async function getInfo(){
@@ -97,17 +98,17 @@ const Cex = () => {
             </Box>
         <TabPanel value={value} index={0}>
             {isLoading ? <Grid sx={{ textAlign: "center", marginTop: "36px" }}><CircularProgress /> </Grid>: priceBinance.map((tokenInfo: any, i: any) => (
-                <Price price={tokenInfo.lastPrice} name={tokenInfo.symbol} low={tokenInfo.lowPrice} high={tokenInfo.highPrice} />
+                <Price price={tokenInfo.lastPrice} name={tokenInfo.symbol} low={tokenInfo.lowPrice} high={tokenInfo.highPrice} link={`https://www.binance.com/fr/trade/${TOKEN[i]}`} />
             ))}
         </TabPanel>
         <TabPanel value={value} index={1}>
             {isLoading ? <Grid sx={{ textAlign: "center", marginTop: "36px" }}><CircularProgress /></Grid> : priceBybit.map((tokenInfo: any, i: any) => (
-                <Price price={tokenInfo.ask_price} name={tokenInfo.symbol} low={tokenInfo.low_price_24h} high={tokenInfo.high_price_24h} />
+                <Price price={tokenInfo.ask_price} name={tokenInfo.symbol} low={tokenInfo.low_price_24h} high={tokenInfo.high_price_24h} link={`https://www.bybit.com/trade/usdt/${tokenInfo.symbol}`} />
             ))}
         </TabPanel>
         <TabPanel value={value} index={2}>
             {isLoading ? <Grid sx={{ textAlign: "center", marginTop: "36px" }}><CircularProgress /></Grid>  : priceHuobi.map((tokenInfo: any, i: any) => (
-                <Price price={tokenInfo.ask[0]} name={HuobiToken[i].toUpperCase()} low={tokenInfo.low} high={tokenInfo.high} />
+                <Price price={tokenInfo.ask[0]} name={HuobiToken[i].toUpperCase()} low={tokenInfo.low} high={tokenInfo.high} link={`https://www.huobi.com/fr-fr/exchange/${TOKEN[i]}/`} />
             ))}
         </TabPanel>
         </Grid>            

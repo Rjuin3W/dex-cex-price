@@ -160,7 +160,7 @@ const Dex = () => {
             </Box>
         <TabPanel value={value} index={0}>
         {chainID === 1 ? currentAccount ? isLoading ? <Grid sx={{ textAlign: "center", marginTop: "36px" }}><CircularProgress /></Grid> : pricetoken.map((tokenInfo: any, i: any) => (
-                <Price price={formatEther(tokenInfo._hex)} name={tokenETH[i].name} />
+                <Price price={formatEther(tokenInfo._hex)} name={tokenETH[i].name} link={"https://app.uniswap.org/#/swap"} />
             )) : <IsNotConnected /> : <IsNotConnected />}
         </TabPanel>
         </Grid>            
